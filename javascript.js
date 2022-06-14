@@ -4,7 +4,7 @@ let good_words = ["Life is better than you think", "You can do everything",
 "Party, Listen, Dance", "Code, Listen, Sleep", "const life.status = 'Best';", "Wake Up!", "Let Start!"]
 
 const background = ['1.jpg', '2.png', '3.jpg', '4.jpg', '5.jpg', 
-    '6.jpg', '7.png', '8.jpg','9.jpg', '10.png', '11.jpg','12.jpg']
+    '6.jpg', '7.png', '8.jpg','9.jpg', '10.png', '11.jpg']
 
 const random_background = Math.floor(Math.random() * background.length)
 $('#background').html(`<img src="assets/${background[random_background]}">`)
