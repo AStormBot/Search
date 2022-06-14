@@ -7,14 +7,14 @@ const background = ['1.jpg', '2.png', '3.jpg', '4.jpg', '5.jpg',
     '6.jpg', '7.png', '8.jpg','9.jpg', '10.png', '11.jpg']
 
 const random_background = Math.floor(Math.random() * background.length)
-$('#background').html(`<img src="assets/${background[random_background]}">`)
+$('#background').html(`<img src="assets/${background[random_background]}" alt="">`)
 $('#good b').text(good_words[Math.floor(Math.random() * good_words.length)])
 
 // Clock!
 const date = new Date()
 let hour = date.getHours();
 let min = date.getMinutes()
-const check = setInterval(() => {
+setInterval(() => {
     const date2 = new Date()
     if (hour !== date2.getHours()) hour = date2.getHours();
     if (min !== date2.getMinutes()) min = date2.getMinutes();
