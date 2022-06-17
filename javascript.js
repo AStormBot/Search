@@ -28,7 +28,7 @@ setInterval(() => {
 }, 100)
 
 // date
-$('#clock p').html(date.getMonth() + " / " + date.getDay() + " / " + date.getFullYear())
+$('#clock p').html(date.getMonth()+1  + " / " + date.getDate() + " / " + date.getFullYear())
 
 //timer
 let doing = true;
@@ -68,3 +68,19 @@ $('#timer_form p').click(() => {
         }
     }, 1000)
 })
+
+// add css variable
+const root = document.querySelector(':root');
+root.style.setProperty('--height', `${screen.height}px`)
+
+// url detector
+document.addEventListener("keypress", function onEvent(event) {
+    if (event.key === "Enter") {
+        const value = document.forms['url']['q'].value;
+        if (value.endsWith('.com') || value.endsWith('.ir')) {
+            window.open("https://www." + value, "_self")
+        }else {
+            window.open('https://www.google.com/search?q=' + value, '_self')
+        }
+    }
+});

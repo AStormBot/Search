@@ -5,19 +5,33 @@
     <script src="./Library/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Search Box</title>
+<!-- Import Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="background">
 
     </div>
-    <div id="searchbox">
-        <form action="https://www.google.com/search" method="get">
-            <div id="search">
-                <label for="q" id="good"><b>Search</b></label><br>
-                <input type="text" placeholder="Search!" name="q" id="q" spellcheck="false" autofocus>
-                <div id="favorite">
-                    <div>
-                        <span onclick="window.open('https://www.discord.com')">
+    <div id="body">
+        <div id="timer">
+            <form name="timer" id="timer_form">
+                <input max="99" min="0" name="min" placeholder="Min" type="number" style="margin-left: 5%">
+                <input max="60" min="1" name="sec" placeholder="Sec" type="number">
+                <p>Start</p>
+            </form>
+            <div id="target">
+                Loading...
+            </div>
+        </div>
+        <div id="searchbox">
+            <form action="https://www.google.com/search" method="get">
+                <div id="search">
+                    <label for="q" id="good"><b>Search</b></label><br> <br><br><br>
+                    <input type="text" placeholder="Search!" name="q" id="q" spellcheck="false" autofocus>
+                    <div id="favorite">
+                        <span onclick="window.open('https://discord.com/channels/952847626498351154/952847626498351157')">
                             <img src="./assets/Icons/discord.png" alt=""><br>
                             Discord
                         </span>
@@ -27,7 +41,7 @@
                         </span>
                             <span onclick="window.open('https://www.wallpaperaccess.com')">
                             <img src="./assets/Icons/wallpaper.webp" alt=""><br>
-                            Wallpaper access
+                            Wallpaper
                         </span>
                             <span onclick="window.open('https://www.instagram.com')">
                             <img src="./assets/Icons/instagram.png" alt=""><br>
@@ -41,41 +55,29 @@
                             <img src="./assets/Icons/w3schoools.ico" alt=""><br>
                             W3schools
                         </span>
-                    </div>
-                    <div>
                         <span onclick="window.open('https://www.twitch.tv')">
                             <img src="./assets/Icons/twitch.png" alt=""><br>
                             Twitch
                         </span>
-                        <span onclick="window.open('https://www.gmail.com')">
+                            <span onclick="window.open('https://www.gmail.com')">
                             <img src="./assets/Icons/gmail.png" alt=""><br>
                             Gmail
                         </span>
-                        <span onclick="window.open('https://www.roblox.com')">
+                            <span onclick="window.open('https://www.roblox.com')">
                             <img src="./assets/Icons/roblox.ico" alt=""><br>
                             Roblox
                         </span>
                     </div>
+                    <div id="clock">
+                        <b>5:30</b>
+                        <p>Bruh</p>
+                    </div>
                 </div>
-                <div id="clock">
-                    <b>5:30</b>
-                    <p>Bruh</p>
-                </div>
-            </div>
-        </form>
-    </div>
-    <div id="timer">
-        <form name="timer" id="timer_form">
-            <input max="99" min="0" name="min" placeholder="Min" type="number">
-            <input max="60" min="1" name="sec" placeholder="Sec" type="number">
-            <p>Start</p>
-        </form>
-        <div id="target">
-            Loading...
+            </form>
         </div>
-    </div>
-    <div id="weather">
-        <iframe src="https://www.ventusky.com/"></iframe>
+        <div id="weather">
+            <iframe src="https://www.ventusky.com/"></iframe>
+        </div>
     </div>
     <script src="./javascript.js"></script>
 </body>
