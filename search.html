@@ -26,57 +26,48 @@
             </div>
         </div>
         <div id="searchbox">
-            <form action="https://www.google.com/search" method="get">
+            <form action="https://www.google.com/search" method="get" name="url">
                 <div id="search">
                     <label for="q" id="good"><b>Search</b></label><br> <br><br><br>
                     <input type="text" placeholder="Search!" name="q" id="q" spellcheck="false" autofocus>
                     <div id="favorite">
-                        <span onclick="window.open('https://discord.com/channels/952847626498351154/952847626498351157')">
-                            <img src="./assets/Icons/discord.png" alt=""><br>
-                            Discord
-                        </span>
-                            <span onclick="window.open('https://www.youtube.com')">
-                            <img src="./assets/Icons/youtube.png" alt=""><br>
-                            Youtube
-                        </span>
-                            <span onclick="window.open('https://www.wallpaperaccess.com')">
-                            <img src="./assets/Icons/wallpaper.webp" alt=""><br>
-                            Wallpaper
-                        </span>
-                            <span onclick="window.open('https://www.instagram.com')">
-                            <img src="./assets/Icons/instagram.png" alt=""><br>
-                            Instagram
-                        </span>
-                            <span onclick="window.open('https://www.github.com')">
-                            <img src="./assets/Icons/github.png" alt=""><br>
-                            GitHub
-                        </span>
-                            <span onclick="window.open('https://www.w3schools.com')">
-                            <img src="./assets/Icons/w3schoools.ico" alt=""><br>
-                            W3schools
-                        </span>
-                        <span onclick="window.open('https://www.twitch.tv')">
-                            <img src="./assets/Icons/twitch.png" alt=""><br>
-                            Twitch
-                        </span>
-                            <span onclick="window.open('https://www.gmail.com')">
-                            <img src="./assets/Icons/gmail.png" alt=""><br>
-                            Gmail
-                        </span>
-                            <span onclick="window.open('https://www.roblox.com')">
+                        <span onclick="window.open('https://www.roblox.com')">
                             <img src="./assets/Icons/roblox.ico" alt=""><br>
                             Roblox
                         </span>
+                        <span class="add">
+                            <div id="add-icon">
+                                <div></div>
+                                <div></div>
+                            </div> <br>
+                            add
+                        </span>
                     </div>
                     <div id="clock">
-                        <b>5:30</b>
-                        <p>Bruh</p>
+                        <b>Clock</b>
+                        <p>Date</p>
                     </div>
                 </div>
             </form>
         </div>
         <div id="weather">
             <iframe src="https://www.ventusky.com/"></iframe>
+        </div>
+        <div class="add-panel">
+            <form name="add-pack" class="main-panel">
+                <div class="first-input">
+                    <label for="name">Enter Site name</label>
+                    <input type="text" name="name" id="name" placeholder="Site Name">
+                </div>
+                <div class="second-input">
+                    <label for="url">Enter Site Url:</label>
+                    <input type="text" name="url" id="url" placeholder="Site Url">
+                </div>
+                <div class="save">
+                    <span class="cancel">Cancel</span>
+                    <span class="save-pack">Save</span>
+                </div>
+            </form>
         </div>
     </div>
     <script src="./javascript.js"></script>

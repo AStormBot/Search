@@ -74,13 +74,70 @@ const root = document.querySelector(':root');
 root.style.setProperty('--height', `${screen.height}px`)
 
 // url detector
-document.addEventListener("keypress", function onEvent(event) {
-    if (event.key === "Enter") {
-        const value = document.forms['url']['q'].value;
-        if (value.endsWith('.com') || value.endsWith('.ir')) {
-            window.open("https://www." + value, "_self")
-        }else {
-            window.open('https://www.google.com/search?q=' + value, '_self')
-        }
+document.getElementById("q").addEventListener("keypress", myFunction);
+
+function myFunction(e) {
+    const value = document.forms['url']['q'].value
+    console.log('function called')
+    if (value.endsWith('.com') || value.endsWith('.ir') || value.endsWith('.tv') || value.endsWith('.info')) {
+        window.open(`https://www.${value}`, "_self")
+        console.log('If is true')
     }
+}
+
+// shadow of span
+let element = document.documentElement;
+
+element.addEventListener("mousemove", e => {
+    element.style.setProperty('--mouse-x', e.clientX + "px");
+    element.style.setProperty('--mouse-y', e.clientY + "px");
 });
+
+// add local storage
+function toggle() {
+    $('.add-panel').fadeToggle();
+    return true
+}
+$('.add').click(() => {
+    toggle()
+})
+$('.save-pack').click(() => {
+    const name = document.forms['add-pack']['name'].value;
+    const url = document.forms['add-pack']['url'].value;
+    let icon_pack = undefined;
+    if (url.startsWith('www.')) {
+        icon_pack = `url=https://${url}&size=16`;
+    }else if (url.startsWith('https' || url.startsWith('http'))) {
+        icon_pack = `url=${url}&size=16`;
+    }else {
+        icon_pack = `url=http://www.${url}&size=32`
+    }
+    const length = local.length / 3;
+    local.setItem(`${length}-name`, name);
+    local.setItem(`${length}-url`, url);
+    local.setItem(`${length}-icon`, icon_pack);
+    toggle();
+})
+$('.cancel').click(() => {
+    toggle();
+})
+
+// Local Storage
+let check = "";
+const local = localStorage;
+for (let i = 0; i < local.length / 3; i++) {
+    const name = local.getItem(`${i}-name`);
+    const url = local.getItem(`${i}-url`);
+    const icon = local.getItem(`${i}-icon`);
+    check += `<span onclick="window.open(${url})">
+<img src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&${icon}"> <br> ${name}
+</span>`
+}
+check += `<span class="add" onclick="toggle()">
+                            <div id="add-icon">
+                                <div></div>
+                                <div></div>
+                            </div> <br>
+                            add
+                        </span>`
+$('#favorite').html(check)

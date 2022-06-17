@@ -81,7 +81,7 @@ body {
 #searchbox{
     width: 40%;
     height: 80%;
-    padding: 5%;
+    margin-top: 5%;
 }
 #search {
     width: 100%;
@@ -119,6 +119,7 @@ body {
     backdrop-filter: blur(10px);
     opacity: 1;
     overflow: hidden;
+    overflow-y: auto;
     padding: 2px;
     transition: opacity 300ms ease-in-out;
     background: var(--background-color-glass-dark);
@@ -188,4 +189,116 @@ body {
     outline: none;
     border: none;
     box-shadow: none;
+}
+.add {
+    border: 5px dashed gray;
+}
+.add #icon {
+    width: 64px;
+    height: 64px;
+    position: relative;
+}
+.add #icon div:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    transform: rotate(90deg);
+    background: gray;
+    margin-top: 50%
+}
+.add #icon div:nth-child(2) {
+    width: 100%;
+    height: 100%;
+    background: gray;
+}
+.add-panel {
+    position: absolute;
+    background: var(--background-color-glass-dark);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 107.5%;
+    z-index: 1;
+    display: none;
+}
+.main-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    background: #191919;
+    width: 50%;
+    height: 50%;
+    color: white;
+    padding: 50px;
+}
+.first-input, .second-input {
+    width: 90%;
+}
+.first-input {
+    margin-bottom: 50px;
+}
+.first-input input, .second-input input {
+    width: 90%;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+    background: #2f2f2f;
+    color: white;
+}
+.save {
+    height: 20px;
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+}
+.save span {
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    border-radius: 3px;
+    margin: 15px;
+    color: white;
+    transition: background 200ms;
+}
+.save span:nth-child(1) {
+    background: #2f2f2f;
+}
+.save span:nth-child(2) {
+    background: #1fe51f;
+}
+.save span:hover {
+    background: blue;
+    cursor: pointer;
+}
+.first-input label, .second-input label {font-size: 20px;}
+@media only screen and (max-width: 1000px) {
+    #weather {
+        display: none;
+    }
+    #clock p {
+        display: none;
+    }
+    #searchbox {
+        width: 80%;
+    }
+    #good ,b {
+        width: 80%;
+    }
+    #timer {
+        display: none;
+    }
+    #favorite{
+        overflow-y: auto;
+    }
+    #favorite span {
+        width: 80px;
+        height: 102px;
+        font-size: 12px;
+    }
+    #favorite span img {
+        width: 64px;
+    }
 }
