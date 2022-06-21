@@ -1,6 +1,6 @@
 let good_words = ["Life is better than you think", "You can do everything",
 "Don't forget you have friend", "Best thing is for you",
-"Happy = Good Work", "You life is your friends!", "Grow up!", "U can't lost!", "Let Enjoy!", "Code, eat, Sleep",
+"Happy = Good Work", "Grow up!", "U can't lost!", "Let Enjoy!", "Code, eat, Sleep",
 "Party, Listen, Dance", "Code, Listen, Sleep", "const life.status = 'Best';", "Wake Up!", "Let Start!"]
 
 const background = ['1.jpg', '2.png', '3.jpg', '4.jpg', '5.jpg', 
@@ -80,8 +80,12 @@ function myFunction(e) {
     const value = document.forms['url']['q'].value
     console.log('function called')
     if (value.endsWith('.com') || value.endsWith('.ir') || value.endsWith('.tv') || value.endsWith('.info')) {
-        window.open(`https://www.${value}`, "_self")
-        console.log('If is true')
+        if (value.split(".").length - 1 > 1) {
+            window.open(`https://${value}`, "_self")
+        }else {
+            window.open(`https://www.${value}`, "_self")
+            console.log('If is true')
+        }
     }
 }
 
@@ -106,17 +110,20 @@ $('.save-pack').click(() => {
     const url = document.forms['add-pack']['url'].value;
     let icon_pack = undefined;
     if (url.startsWith('www.')) {
-        icon_pack = `url=https://${url}&size=16`;
+        icon_pack = `http://${url}`;
     }else if (url.startsWith('https' || url.startsWith('http'))) {
-        icon_pack = `url=${url}&size=16`;
+        icon_pack = `${url}`;
+    }else if (url.split(".").length - 1 > 1) {
+        icon_pack = `https://${url}`
     }else {
-        icon_pack = `url=http://www.${url}&size=32`
+        icon_pack = `https://www.${url}`
     }
     const length = local.length / 3;
     local.setItem(`${length}-name`, name);
     local.setItem(`${length}-url`, url);
     local.setItem(`${length}-icon`, icon_pack);
     toggle();
+    document.location.reload(true);
 })
 $('.cancel').click(() => {
     toggle();
@@ -129,8 +136,8 @@ for (let i = 0; i < local.length / 3; i++) {
     const name = local.getItem(`${i}-name`);
     const url = local.getItem(`${i}-url`);
     const icon = local.getItem(`${i}-icon`);
-    check += `<span onclick="window.open(${url})">
-<img src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&${icon}"> <br> ${name}
+    check += `<span onclick="window.open('${icon}', '_self')">
+<img src="https://www.google.com/s2/favicons?domain=${icon}/"> <br> ${name}
 </span>`
 }
 check += `<span class="add" onclick="toggle()">
